@@ -27,6 +27,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.ytp-large-play-button.ytp-button</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>css=button.ytp-large-play-button.ytp-button</td>
 	<td></td>
@@ -47,11 +52,6 @@
 	<td>THE KUMON MATH PROGRAM</td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>css=img.inner-sub</td>
-	<td></td>
-</tr>
-<tr>
 	<td>assertElementPresent</td>
 	<td>css=img.inner-sub</td>
 	<td></td>
@@ -63,12 +63,32 @@
 </tr>
 <tr>
 	<td>assertText</td>
+	<td>css=p</td>
+	<td>Enrolling in the Kumon Math Program will help build and advance your child's math skills, for an advantage in school and beyond.</td>
+</tr>
+<tr>
+	<td>assertText</td>
 	<td>//p[2]</td>
 	<td>Daily Kumon Math Worksheets will take about 30 minutes to complete in two sessions a week at a Kumon Center, and then another five assignments to be completed at home. Your child will work at his or her own pace, mastering each new concept before moving on. With each worksheet, you’ll find your child accelerating important math skills. Many Kumon parents ultimately find their children mastering concepts that put them grade levels ahead of their peers.</td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
 	<td>link=JOIN US FOR A PARENT ORIENTATION</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=JOIN US FOR A PARENT ORIENTATION</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Math Program</td>
 	<td></td>
 </tr>
 <tr>
@@ -102,7 +122,17 @@
 	<td>As your child’s knowledge grows, so will a valuable sense of accomplishment.</td>
 </tr>
 <tr>
+	<td>click</td>
+	<td>link=SAMPLE WORKSHEETS</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
+	<td>link=Ages 6-12</td>
+	<td>Ages 6-12</td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>link=Ages 6-12</td>
 	<td>Ages 6-12</td>
 </tr>
@@ -122,7 +152,17 @@
 	<td>You’ll watch your child’s knowledge advance and grow.</td>
 </tr>
 <tr>
+	<td>click</td>
+	<td>link=SAMPLE WORKSHEETS</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
+	<td>link=Ages 13+</td>
+	<td>Ages 13+</td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>link=Ages 13+</td>
 	<td>Ages 13+</td>
 </tr>
@@ -149,7 +189,7 @@
 <tr>
 	<td>assertText</td>
 	<td>css=article.topics &gt; div.container.text-center &gt; h3</td>
-	<td>exact:What topics are covered in the Kumon Math Program?</td>
+	<td>What topics are covered in the Kumon Math Program?</td>
 </tr>
 <tr>
 	<td>assertText</td>
@@ -458,6 +498,26 @@
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'Math Program')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Math Program')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Math Program</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
 	<td>//a[contains(text(),'Reading Program')]</td>
 	<td></td>
 </tr>
@@ -602,8 +662,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>//a[contains(text(),'Own a Franchise')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
 	<td></td>
 </tr>
 <tr>
