@@ -1,5 +1,6 @@
 package test;
 
+import static java.lang.System.exit;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
@@ -26,17 +27,31 @@ public class KumonReadingProgram {
   public void testKumonReadingProgram() throws Exception {
     driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Reading Program")).click();
- /*   driver.findElement(By.linkText("PLAY VIDEO")).click();
+    /*driver.findElement(By.linkText("PLAY VIDEO")).click();
     for (int second = 0;; second++) {
-    	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.xpath("/html/body/div[1]/div/div[4]/button"))) break; } catch (Exception e) {}
+    	if (second >= 60) {
+            //fail("timeout"); 
+            exit(1);
+        }
+    	try { if (isElementPresent(By.cssSelector("button.ytp-large-play-button.ytp-button"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-
-    driver.findElement(By.xpath("/html/body/div[1]/div/div[4]/button")).click();
-    ///html/body/div[5]/div/div/div/button
-    ///html/body/div[1]/div/div[4]/button
-    driver.findElement(By.xpath("/html/body/div[5]/div/div/div/button")).click(); */
+    System.out.println("Play button found");
+    ///html/body/div/div/div[4]/button
+    //https://www.youtube.com/embed/y_lpPKEpMrQ
+    driver.findElement(By.cssSelector("button.ytp-large-play-button.ytp-button")).click();
+    System.out.println("Play button clicked");
+    for (int second = 0;; second++) {
+    	if (second >= 60) {
+            //fail("timeout"); 
+            exit(1);
+        }
+    	try { if (isElementPresent(By.xpath("//div[@id='videoModal']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+    System.out.println("Close button found");
+    driver.findElement(By.xpath("//div[@id='videoModal']")).click();
+    System.out.println("Close button clicked");*/
     try {
       assertEquals(driver.findElement(By.cssSelector("h2.jumbotron__header")).getText(), "WATCH HOW\nKUMON CAN BUILD AND ADVANCE YOUR CHILD’S READING SKILLS");
     } catch (Error e) {
@@ -432,11 +447,11 @@ public class KumonReadingProgram {
     }
     driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
     try {
-      assertTrue(isElementPresent(By.xpath("(//a[contains(@href, '/home')])[7]")));
+      assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'United States - English')])[2]")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.xpath("(//a[contains(@href, '/home')])[7]")).click();
+    driver.findElement(By.xpath("(//a[contains(text(),'United States - English')])[2]")).click();
     driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Reading Program")).click();
     try {
