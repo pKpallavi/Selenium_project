@@ -53,11 +53,10 @@ public class kumonAboutUs {
     driver.findElement(By.cssSelector("a.bl-bigger")).click();
     
     //driver.findElement(By.linkText("About Kumon")).click();
-   
     //driver.findElement(By.cssSelector("a[href='/about-kumon/kumon-method']")).click();
     // driver.findElement(By.linkText("The Kumon Method and Its Strengths")).click();
     //driver.findElement(By.cssSelector("h4")).click();
-   // driver.findElement(By.linkText("1. Individualized Instruction")).click();
+    // driver.findElement(By.linkText("1. Individualized Instruction")).click();
     //driver.findElement(By.linkText("2. Self-Learning")).click();
     //driver.findElement(By.linkText("3. Small-Step Worksheets")).click();
     //driver.findElement(By.linkText("4. Kumon Instructors")).click();
@@ -88,11 +87,12 @@ public class kumonAboutUs {
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Saurav\\Downloads\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\data\\geckodriver-v0.19.1-win64\\geckodriver.exe");
          baseUrl ="https://www.kumon.com/";
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
+        driver.quit();
     }
 }

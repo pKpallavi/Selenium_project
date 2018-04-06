@@ -88,11 +88,12 @@ String baseUrl;
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Saurav\\Downloads\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\data\\geckodriver-v0.19.1-win64\\geckodriver.exe");
          baseUrl ="https://www.kumon.com/";
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
+        driver.quit();
     }
 }
