@@ -464,6 +464,7 @@ public class KumonReadingProgram {
       verificationErrors.append(e.toString());
     }
     driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
+    wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//a[contains(@href, '/us-es/home')])[2]")));
     try {
       assertTrue(isElementPresent(By.xpath("(//a[contains(@href, '/us-es/home')])[2]")));
     } catch (Error e) {
