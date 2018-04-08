@@ -530,7 +530,7 @@ public class KumonReadingProgram {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.xpath("(//a[contains(@href, '/mx-es/home')])[2]")).click();
+    //driver.findElement(By.xpath("(//a[contains(@href, '/mx-es/home')])[2]")).click();
     driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Reading Program")).click();
     try {
