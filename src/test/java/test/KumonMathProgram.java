@@ -103,7 +103,7 @@ public class KumonMathProgram {
             Thread.sleep(1000);
         }
 
-        driver.findElement(By.linkText("Ages 3-5")).click();
+        /*driver.findElement(By.linkText("Ages 3-5")).click();
         try {
             assertEquals(driver.findElement(By.xpath("//div[@id='item-1_3-6']/h5")).getText(), "Build your child’s math skills from an early age");
         } catch (Error e) {
@@ -131,7 +131,7 @@ public class KumonMathProgram {
             } catch (Exception e) {
             }
             Thread.sleep(1000);
-        }
+        }*/
 
         driver.findElement(By.linkText("Ages 6-12")).click();
         try {
@@ -422,6 +422,7 @@ public class KumonMathProgram {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
