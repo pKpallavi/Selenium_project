@@ -411,6 +411,7 @@ public class KumonReadingProgram {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    Thread.sleep(3000);
     driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();
     driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Reading Program")).click();
