@@ -524,7 +524,7 @@ public class KumonMathProgram {
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
-        driver.findElement(By.xpath("(//a[contains(text(),'Mexico - English')])[2]")).click();
+        //driver.findElement(By.xpath("(//a[contains(text(),'Mexico - English')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
         try {
