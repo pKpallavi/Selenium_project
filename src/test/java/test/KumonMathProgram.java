@@ -10,7 +10,6 @@ import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-//import org.apache.commons.lang3;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 public class KumonMathProgram {
@@ -51,13 +50,14 @@ public class KumonMathProgram {
             //count++;
             //if(count == 2) break; //break after switching to first new window
         }*/
-        
-        driver.switchTo().frame(0); //frame("embed-responsive-item.video-frame");
-/*        oldStdout = System.out;
+
+/*      oldStdout = System.out;
         System.setOut(fileStream);
         System.out.println(driver.getPageSource());
         System.setOut(oldStdout);
 */
+        
+        driver.switchTo().frame(0); //frame("embed-responsive-item.video-frame");
         Thread.sleep(3000);
 
         try {
@@ -139,38 +139,26 @@ public class KumonMathProgram {
             Thread.sleep(1000);
         }
 
-        driver.findElement(By.linkText("Ages 3-5")).click();
-        Thread.sleep(3000);
+        //commenting out this piece of code because the link is already clicked.
+        //driver.findElement(By.linkText("Ages 3-5")).click();
 
         try {
-            String str = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/div/div[1]/div[1]/h5")).getText();
+            String str = driver.findElement(By.cssSelector("#item-1_3-6 > h5")).getText();
             assertEquals(str, "Build your child’s math skills from an early age");
-            //assertEquals(driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/div/div[1]/div[1]/h5")).getText(), "Build your child’s math skills from an early age");
-            //assertEquals(driver.findElement(By.xpath("//div[@id='item-1_3-6']/h5")).getText(), "Build your child’s math skills from an early age");
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            String str = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/div/div[1]/div[2]/h5")).getText();
-            assertEquals(str, "You and the instructor are there to guide your child.");
-            //assertEquals(driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/div/div[1]/div[2]/h5")).getText(), "You and the instructor are there to guide your child.");
-            //assertEquals(driver.findElement(By.xpath("//div[@id='item-2_3-6']/h5")).getText(), "You and the instructor are there to guide your child.");
+            assertEquals(driver.findElement(By.cssSelector("#item-2_3-6 > h5")).getText(), "You and the instructor are there to guide your child.");
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            String str = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/div/div[1]/div[3]/h5")).getText();
-            assertEquals(str, "As your child’s knowledge grows, so will a valuable sense of accomplishment.");
-            //assertEquals(driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/div/div[1]/div[3]/h5")).getText(), "As your child’s knowledge grows, so will a valuable sense of accomplishment.");
-            //assertEquals(driver.findElement(By.xpath("//div[@id='item-3_3-6']/h5")).getText(), "As your child’s knowledge grows, so will a valuable sense of accomplishment.");
+            assertEquals(driver.findElement(By.cssSelector("#item-3_3-6 > h5")).getText(), "As your child’s knowledge grows, so will a valuable sense of accomplishment.");
         } catch (Error e) {
-            oldStdout = System.out;
-            System.setOut(fileStream);
-            System.out.println(driver.getPageSource());
-            System.setOut(oldStdout);
+            verificationErrors.append(e.toString());
+        }
 
-            verificationErrors.append(e.toString());
-        }
         //driver.findElement(By.linkText("SAMPLE WORKSHEETS")).click();
         for (int second = 0;; second++) {
             if (second >= 60) {
@@ -317,6 +305,7 @@ public class KumonMathProgram {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
         try {
             assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'ATTEND ORIENTATION')])[2]")));
         } catch (Error e) {
@@ -333,6 +322,7 @@ public class KumonMathProgram {
         driver.findElement(By.xpath("(//a[contains(@href, 'locations')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+
         try {
             assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Careers')])[2]")));
         } catch (Error e) {
@@ -402,6 +392,7 @@ public class KumonMathProgram {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+    
         try {
             assertTrue(isElementPresent(By.xpath("//a[contains(text(),'How Kumon Works')]")));
         } catch (Error e) {
@@ -480,7 +471,7 @@ public class KumonMathProgram {
             verificationErrors.append(e.toString());
         }
         Thread.sleep(3000);
-        //driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();
+        driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
         try {
@@ -514,13 +505,15 @@ public class KumonMathProgram {
         driver.findElement(By.cssSelector("div.header-top__logo.hide-text")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Select a language')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
-        try {
+        Thread.sleep(1000);
+         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'United States - English')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
@@ -528,12 +521,15 @@ public class KumonMathProgram {
         driver.findElement(By.xpath("(//a[contains(text(),'United States - English')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+        Thread.sleep(1000);
+
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Select a language')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
+        Thread.sleep(1000);
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(@href, '/us-es/home')])[2]")));
         } catch (Error e) {
@@ -542,12 +538,15 @@ public class KumonMathProgram {
         driver.findElement(By.xpath("(//a[contains(@href, '/us-es/home')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+        Thread.sleep(1000);
+
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Select a language')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
+        Thread.sleep(1000);
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(@href, '/ca-en/home')])[2]")));
         } catch (Error e) {
@@ -556,12 +555,15 @@ public class KumonMathProgram {
         driver.findElement(By.xpath("(//a[contains(text(),'Canada - English')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+        Thread.sleep(1000);
+
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Select a language')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
+        Thread.sleep(1000);
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(@href, '/ca-fr/accueil')])[2]")));
         } catch (Error e) {
@@ -570,26 +572,32 @@ public class KumonMathProgram {
         driver.findElement(By.xpath("(//a[contains(@href, '/ca-fr/accueil')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+        Thread.sleep(1000);
+
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Select a language')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
+        Thread.sleep(1000);
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Mexico - English')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
-        //driver.findElement(By.xpath("(//a[contains(text(),'Mexico - English')])[2]")).click();
+        driver.findElement(By.xpath("(//a[contains(text(),'Mexico - English')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+        Thread.sleep(1000);
+
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'Select a language')])[2]")));
         } catch (Error e) {
           verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("(//a[contains(text(),'Select a language')])[2]")).click();
+        Thread.sleep(1000);
         try {
           assertTrue(isElementPresent(By.xpath("(//a[contains(@href, '/mx-es/home')])[2]")));
         } catch (Error e) {
@@ -598,6 +606,8 @@ public class KumonMathProgram {
         driver.findElement(By.xpath("(//a[contains(@href, '/mx-es/home')])[2]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+        Thread.sleep(1000);
+
         try {
           assertTrue(isElementPresent(By.id("zip")));
         } catch (Error e) {
