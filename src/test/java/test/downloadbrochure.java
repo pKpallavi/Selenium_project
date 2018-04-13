@@ -7,7 +7,9 @@ package test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -32,6 +34,54 @@ public class downloadbrochure {
     // The methods must be annotated with annotation @Test. For example:
     //
      @Test
+     public void mousehover() {
+         
+         System.out.println("launching firefox browser"); 
+        driver = new FirefoxDriver(); 
+                if (driver == null) fail (" driver is not initialize");
+        driver.get(baseUrl);
+                 
+                WebDriverWait wait = new WebDriverWait(driver, 10);
+                WebElement ele=driver.findElement(By.xpath(".//*[@id='head-nav']/ul/li[2]/a"));
+               
+               // ele.click();
+                
+               Actions act=new Actions(driver);
+    
+             
+             
+               act.moveToElement(ele).perform();
+               
+               System.out.println("Font color of How Kumon works after mouse hover : "+ele.getCssValue("color"));
+               System.out.println("Font size of How Kumon works after mouse hover: "+ele.getCssValue("font-size"));
+               //System.out.println("Font of How Kumon works after mouse hover: "+ele.getCssValue("background-color"));
+               
+              // String color=driver.findElement(By.linkText("ATTEND ORIENTATION")).getCssValue("color");
+               //System.out.println(color);
+               
+                WebElement bcolor=driver.findElement(By.linkText("Own a Franchise"));
+                
+               System.out.println("background color of Own a Franchise before mouse hover : "+bcolor.getCssValue("background-color"));
+               
+                Actions butcolor=new Actions(driver);
+               
+               butcolor.moveToElement(bcolor).perform();
+               
+               System.out.println("background color of Own a Franchise after mouse hover : "+bcolor.getCssValue("background-color"));
+               
+         
+          
+               
+               //assertEquals
+               //ele.getCssValue(ele);
+               
+              //String color = driver.findElement(By.xpath(".//*[@id='head-nav']/ul/li[2]/a")).getCssValue("color");
+               
+               //System.out.println("Color: " + color); 
+                
+     
+     }
+@Test
     public void hello() {
     
         System.out.println("launching firefox browser"); 
