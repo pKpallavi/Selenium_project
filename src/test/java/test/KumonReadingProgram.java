@@ -414,12 +414,12 @@ public class KumonReadingProgram {
     driver.findElement(By.xpath("//a[contains(text(),'About Kumon')]")).click();
     driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Reading Program")).click();
+    Thread.sleep(3000);
     try {
       assertTrue(isElementPresent(By.xpath("//a[contains(text(),'Own a Franchise')]")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    Thread.sleep(3000);
     driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();
     driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Reading Program")).click();
