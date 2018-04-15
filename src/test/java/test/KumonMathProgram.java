@@ -11,6 +11,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.lang3.StringEscapeUtils;
+//import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class KumonMathProgram {
 
@@ -22,7 +23,9 @@ public class KumonMathProgram {
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
         System.setProperty("webdriver.gecko.driver", "C:\\Data\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+        //System.setProperty("webdriver.ie.driver", "C:\\Data\\IEDriverServer_Win32_3.9.0\\IEDriverServer.exe");
         driver = new FirefoxDriver();
+        //driver = new InternetExplorerDriver();
         baseUrl = "https://www.kumon.com";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
@@ -465,12 +468,12 @@ public class KumonMathProgram {
         driver.findElement(By.xpath("//a[contains(text(),'About Kumon')]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
+        Thread.sleep(3000);
         try {
             assertTrue(isElementPresent(By.xpath("//a[contains(text(),'Own a Franchise')]")));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        Thread.sleep(3000);
         driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
