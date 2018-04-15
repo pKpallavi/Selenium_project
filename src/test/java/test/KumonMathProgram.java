@@ -116,12 +116,12 @@ public class KumonMathProgram {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        try {
+        /*try {
             assertTrue(isElementPresent(By.linkText("JOIN US FOR A PARENT ORIENTATION")));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.linkText("JOIN US FOR A PARENT ORIENTATION")).click();
+        driver.findElement(By.linkText("JOIN US FOR A PARENT ORIENTATION")).click();*/
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
         try {
@@ -466,7 +466,7 @@ public class KumonMathProgram {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("//a[contains(text(),'About Kumon')]")).click();
-        driver.get(baseUrl + "/");
+        /*driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
         Thread.sleep(3000);
         try {
@@ -474,7 +474,7 @@ public class KumonMathProgram {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();
+        driver.findElement(By.xpath("//a[contains(text(),'Own a Franchise')]")).click();*/
         driver.get(baseUrl + "/");
         driver.findElement(By.linkText("Math Program")).click();
         try {
